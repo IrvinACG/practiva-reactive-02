@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: practica-reactive-02
+#Configuracion BD
+  r2dbc:
+    username: postgres
+    password: mipass
+    url: r2dbc:postgresql://localhost:5432/springnative_bd02
+#Kafka
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_prueba
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      
+#Flyway
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
